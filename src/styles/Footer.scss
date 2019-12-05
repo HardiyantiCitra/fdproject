@@ -1,0 +1,38 @@
+@import "./variables";
+
+.footer {
+  border-top: solid 1px $lightgrey;
+
+  &__top {
+    @include container-center();
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &--about {
+      display: flex;
+      justify-content: space-between;
+      width: 60%;
+
+      &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        div {
+          margin: 20px 0;
+        }
+      }
+    }
+
+    &--download {
+      img {
+        margin: 10px;
+      }
+    }
+  }
+
+  &__bottom {
+    @include container-center();
+  }
+}

@@ -1,0 +1,20 @@
+$black: #000;
+$pink: #DB284F;
+$lightgrey: #d3d3d3;
+$darkgrey: #7D7D7D;
+$white: #fff;
+$darkred: #8b0000;
+$red: #ff0000;
+
+@mixin banner-default {
+  width: 970px;
+  background-color: $darkgrey;
+}
+
+@mixin container-center {
+  width: 1140px;
+  margin: 0 auto;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+}

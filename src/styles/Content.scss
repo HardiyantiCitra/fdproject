@@ -1,0 +1,86 @@
+@import "./variables";
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 1140px;
+  margin: 0 auto;
+  
+  &__top-banner {
+    @include banner-default();
+    height: 50px;
+    margin-bottom: 20px;
+    margin-bottom: -20px;
+  }
+
+  &__billboard {
+    @include banner-default();
+    height: 250px;
+    margin: 40px 0;
+  }
+
+  &__container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 40px;
+
+    &--title {
+      font-size: 22px;
+      color: $black;
+    }
+
+    &--description {
+      font-size: 22px;
+      color: $lightgrey;
+    }
+  }
+
+  &__card-more {
+    width: 100%;
+
+    &--title {
+      font-weight: bold;
+      width: 100%;
+      display: flex;
+    }
+
+    &--description {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin: 20px 0;
+    }
+  }
+
+
+  &__close {
+    color: $white;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 50px;
+
+    &--x {
+      background-color: $darkred;
+      padding: 0 5px;
+    }
+
+    &--text {
+      background-color: $red;
+      padding: 0 5px;
+    }
+  }
+
+  &__see-more {
+    color: $pink;
+    display: flex;
+    align-items: center;
+
+    span {
+      font-size: 25px;
+      margin: 5px 10px;
+    }
+  }
+}
