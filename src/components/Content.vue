@@ -14,6 +14,23 @@
       <div class="content__container--description">
         Curated with love
       </div>
+      <div class="content__container--card" v-if="!isFetching">
+        <div v-for="(d, index) in EDITORS_CHOICE" v-bind:key="index">
+          <div class="editor__profile">
+            <img src="../assets/images/annadean.jpg" />
+            <div class="editor__profile--detail">
+              <p>{{d.editor}}</p>
+              <p>{{d.role}}</p>
+            </div>
+          </div>
+          <div class="editor__product">
+            <img :src="d.product.image" />
+            <p>{{d.product.rating}}</p>
+            <p>{{d.product.name}}</p>
+            <p>{{d.product.description}}</p>
+          </div>
+        </div>
+      </div>
     </div>
     <img src="../assets/images/pink-banner.png" />
     <div class="content__billboard" />
@@ -87,14 +104,59 @@
     </div>
     <div class="content__container">
       <div class="content__container--title">
-        Female Daily - Find everything you want to know about beauty on Female Daily
+        <span>
+          Female Daily - Find everything you want to know about beauty on Female
+          Daily
+        </span>
       </div>
       <div class="content__container--description">
-        Product Reviews, Tips & Tricks, Expert and Consumer Opinions, Beauty Tutorials, Discussions, Beauty Workshops, anything! We are here to be your friendly solution to all things beauty, inside and out!
+        Product Reviews, Tips & Tricks, Expert and Consumer Opinions, Beauty
+        Tutorials, Discussions, Beauty Workshops, anything! We are here to be
+        your friendly solution to all things beauty, inside and out!
       </div>
     </div>
   </div>
 </template>
+
+<script>
+import { mapGetters } from "vuex";
+
+export default {
+  name: "Content",
+  data() {
+    return {
+      isFetching: true
+    };
+  },
+  created() {
+    this.fetchData();
+  },
+  methods: {
+    async fetchData() {
+      try {
+        const url = "https://virtserver.swaggerhub.com/hqms/FDN-WP/0.1/wp";
+        const response = await fetch(url, {
+          method: "GET"
+        });
+        const json = await response.json();
+        this.$store.dispatch("setData", json);
+        // eslint-disable-next-line no-console
+        console.log(json["editor's choice"])
+        this.isFetching = false;
+      } catch (err) {
+        // eslint-disable-next-line no-console
+        console.log("asd")
+      }
+    }
+  },
+  computed: {
+    ...mapGetters(["DATA"]),
+    ...mapGetters(["EDITORS_CHOICE"]),
+    ...mapGetters(["LATEST_ARTICLES"]),
+    ...mapGetters(["LATEST_REVIEWS"])
+  }
+}
+</script>
 
 <style scoped lang="scss">
   @import '@/styles/Content.scss';

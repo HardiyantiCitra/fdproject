@@ -1,6 +1,9 @@
 @import "./variables";
 
 .footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border-top: solid 1px $lightgrey;
 
   &__top {
@@ -34,5 +37,27 @@
 
   &__bottom {
     @include container-center();
+
+    &--copyright {
+      text-align: start;
+    }
+
+    &--social-media {
+      display: flex;
+      align-items: center;
+
+      img {
+        margin: auto 10px;
+      }
+    }
   }
+
+  &__banner {
+    @include banner-default();
+    height: 50px;
+    margin-bottom: 20px;
+    margin-bottom: -20px;
+  }
+
+  @include close-btn(-20px);
 }

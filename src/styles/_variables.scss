@@ -18,3 +18,23 @@ $red: #ff0000;
   display: flex;
   justify-content: space-between;
 }
+
+@mixin close-btn($marginTop) {
+  &__close {
+    color: $white;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: $marginTop;
+    cursor: pointer;
+
+    &--x {
+      background-color: $darkred;
+      padding: 0 5px;
+    }
+
+    &--text {
+      background-color: $red;
+      padding: 0 5px;
+    }
+  }
+}

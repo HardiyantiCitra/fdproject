@@ -55,23 +55,7 @@
     }
   }
 
-
-  &__close {
-    color: $white;
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 50px;
-
-    &--x {
-      background-color: $darkred;
-      padding: 0 5px;
-    }
-
-    &--text {
-      background-color: $red;
-      padding: 0 5px;
-    }
-  }
+  @include close-btn(50px);
 
   &__see-more {
     color: $pink;
