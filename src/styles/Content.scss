@@ -30,28 +30,252 @@
     &--title {
       font-size: 22px;
       color: $black;
+
+      &-about {
+        font-weight: bold;
+        font-size: 20px;
+      }
     }
 
     &--description {
       font-size: 22px;
       color: $lightgrey;
+
+      &-about {
+        font-size: 14px;
+      }
+    }
+
+    &--card {
+      display: flex;
+      width: 100%;
+      justify-content: space-around;
+
+      &--video {
+        align-items: flex-start;
+        justify-content: space-between;
+
+        img {
+          width: 65%;
+        }
+
+        div {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+
+          img {
+            width: 365px;
+            margin-bottom: 10px;
+          }
+        }
+      }
+
+      .editor {
+        &__profile {
+          display: flex;
+          margin: 10px 0 -15px 15px;
+
+          &--image {
+            @include rounded-image();
+          }
+
+          &--detail {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            &--role {
+              font-size: $small-font;
+            }
+
+            &--editor {
+              font-weight: bold;
+              font-size: $medium-font;
+            }
+          }
+        }
+
+        &__product {
+          cursor: pointer;
+          width: 200px;
+          height: 300px;
+          border: solid 1px $lightgrey;
+          border-radius: 4px;
+          padding: 10px;
+          text-align: left;
+          font-weight: bold;
+
+          &--image {
+            text-align: center;
+            
+            img {
+              width: 150px;
+              height: 170px;
+            }
+          }
+
+          &--rating {
+            font-size: $medium-font;
+            margin-right: 20px;
+          }
+
+          &--name, &--description {
+            font-size: $large-font;
+            margin: 10px 0 0 0;
+
+            &:hover {
+              color: $pink;
+            }
+          }
+
+        }
+      }
+
+      .article {
+        &__item {
+          max-width: 350px;
+          flex: 1 0 31%;
+          margin: 10px 0;
+          cursor: pointer;
+
+          img {
+            width: 350px;
+            border-radius: 8px;
+          }
+
+          &--title {
+            font-weight: bold;
+            text-align: left;
+            font-size: $super-font;
+            margin: 10px 0;
+
+            &:hover {
+              color: $pink;
+            }
+          }
+
+          &--description {
+            text-align: left;
+            font-size: $large-font;
+            margin: 0;
+
+            span {
+              color: $mediumgrey;
+            }
+          }
+        }
+      }
+
+      .trending {
+        display: flex;
+        width: 100%;
+
+        img {
+          object-fit: contain;
+          flex: 1 0 15%;
+          margin: 0 10px;
+        }
+      }
+      
+      .review {
+        &__container {
+          display: flex;
+        }
+
+        &__item {
+          flex: 1 0 45%;
+          margin: 0 20px;
+
+          &--top {
+            border: solid 1px $lightgrey;
+            border-radius: 8px;
+            padding: 10px;
+          }
+
+          &--product {
+            display: flex;
+            align-items: center;
+            padding-bottom: 10px;
+
+            img {
+              width: 50px;
+            }
+
+            &--title {
+              text-align: left;
+
+              p {
+                margin: 0;
+              }
+            }
+          }
+
+          &--description {
+            font-size: $medium-font;
+            border-top: solid 1px $lightgrey;
+
+            &--rating {
+              margin-top: 10px;
+              display: flex;
+              justify-content: space-between;
+            }
+
+            p {
+              margin-top: 5px;
+              text-align: left;
+            }
+          }
+
+          &--profile {
+            margin-top: -20px;
+
+            p {
+              margin: 0;
+              font-weight: bold;
+            }
+
+            span {
+              color: $mediumgrey;
+            }
+          }
+        }
+      }
+    }
+
+    &--left {
+      text-align: left;
     }
   }
 
   &__card-more {
     width: 100%;
+    margin: 20px 0;
 
     &--title {
       font-weight: bold;
+      font-size: $super-font;
       width: 100%;
       display: flex;
     }
 
     &--description {
       display: flex;
+      font-size: $super-font;
+      color: $lightgrey;
       justify-content: space-between;
       width: 100%;
-      margin: 20px 0;
+    }
+
+    &--review {
+      width: 800px;
+    }
+
+    .mr-2-banner {
+      width: 300px;
+      height: 250px;
+      background-color: $darkgrey;
+      margin-top: 50px;
     }
   }
 
@@ -61,10 +285,64 @@
     color: $pink;
     display: flex;
     align-items: center;
+    cursor: pointer;
 
     span {
       font-size: 25px;
       margin: 5px 10px;
     }
   }
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.scrollable {
+  overflow: scroll;
+}
+
+.object-fit {
+  img {
+    object-fit: contain;
+  }
+}
+
+.read-more {
+  color: $pink;
+  cursor: pointer;
+}
+
+.stars-outer {
+  position: relative;
+  display: inline-block;
+}
+
+.stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+
+.stars-outer::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: #ccc;
+}
+
+.stars-inner::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: $pink;
 }

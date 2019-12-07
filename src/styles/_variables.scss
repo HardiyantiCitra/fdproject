@@ -1,10 +1,16 @@
 $black: #000;
 $pink: #DB284F;
 $lightgrey: #d3d3d3;
+$mediumgrey: #9b9b9b;
 $darkgrey: #7D7D7D;
 $white: #fff;
 $darkred: #8b0000;
 $red: #ff0000;
+
+$small-font: 12px;
+$medium-font: 14px;
+$large-font: 16px;
+$super-font: 20px;
 
 @mixin banner-default {
   width: 970px;
@@ -37,4 +43,12 @@ $red: #ff0000;
       padding: 0 5px;
     }
   }
+}
+
+@mixin rounded-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 0 10px;
+  z-index: 1;
 }

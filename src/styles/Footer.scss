@@ -1,6 +1,7 @@
 @import "./variables";
 
 .footer {
+  font-weight: bold;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,12 +24,21 @@
         align-items: flex-start;
 
         div {
-          margin: 20px 0;
+          margin: 5px 0;
+          cursor: pointer;
+
+          &:hover {
+            color: $pink;
+          }
         }
       }
     }
 
     &--download {
+      div {
+        margin-top: 10px;
+      }
+
       img {
         margin: 10px;
       }
@@ -37,14 +47,21 @@
 
   &__bottom {
     @include container-center();
+    padding: 0;
 
     &--copyright {
       text-align: start;
+      font-weight: normal;
+
+      p {
+        margin: 0 0 10px 0;
+      }
     }
 
     &--social-media {
       display: flex;
       align-items: center;
+      margin-right: 50px;
 
       img {
         margin: auto 10px;

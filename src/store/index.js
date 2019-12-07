@@ -8,13 +8,22 @@ export default new Vuex.Store({
     data: {},
     editorsChoice: [],
     latestArticles: [],
-    latestReview: []
+    latestReview: [],
+    topBrands: [
+      "../assets/images/nivea.png",
+      "../assets/images/to.png",
+      "../assets/images/tbs.png",
+      "../assets/images/skii.png",
+      "../assets/images/maybelline.png",
+      "../assets/images/inisfree.png"
+    ]
   },
   getters: {
     DATA: state => state.data,
     EDITORS_CHOICE: state => state.editorsChoice,
     LATEST_ARTICLES: state => state.latestArticles,
     LATEST_REVIEWS: state => state.latestReview,
+    TOP_BRANDS: state => state.topBrands
   },
   mutations: {
     SET_DATA: (state, payload) => {
